@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="foodPlaces">
+<head>
+  <title>Food Places</title>
+  <script src="lib/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="js/StudentsController.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+  <body>
+    <div class="container" ng-controller="placesCtrl">
+      <div class="row">
+        <div class="col-md-12 center-block">
+          <h2>Search Places to Eat</h2>
+          <form class="form-inline" role="form">
+            <div class="form-group">
+              <input ng-model="query" type="text" id="place-name" class="form-control" placeholder="search places">
+            </div>
+          </form>
+        <div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
