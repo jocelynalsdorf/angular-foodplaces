@@ -6,21 +6,26 @@
   <script src="app.js"></script>
   <script src="js/PlacesController.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
 </head>
   <body>
     <div class="container" ng-controller="placesCtrl">
       <div class="row">
-        <div class="col-md-12 center-block">
-          <h2>Search Places to Eat</h2>
+        <div class="col-md-12 center-block well">
+        <h1 class="text-center">Avoid Food Posioning in Portland</h1>
+        <br>
+          <h4 class="text-center">Search Places to Eat</h4>
+          <center>
           <form class="form-inline" role="form">
             <div class="form-group">
               <input ng-model="query" type="text" id="place-name" class="form-control" placeholder="search places">
             </div>
           </form>
-        <div>
-      </div>
+          </center>
+        </div>
+        
       <div class="row">
-
+      
         <div class="col-md-8 col-md-offset-2">
 
         </div>
