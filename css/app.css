@@ -28,13 +28,16 @@ ul {
   list-style: none;
 
 }
+
 li {
   font-family: 'Architects Daughter' cursive;
   font-size:18px;
 }
+
 .highlight-text {
 color: #ffa500;
 }
+
 a:hover {
   text-decoration: none;
 }
