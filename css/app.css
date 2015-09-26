@@ -7,13 +7,13 @@ h1 {
   font-size: 65px;
 }
 .well {
-  background-color: rgba(1,1, 1, 0.6);
+  background-color: rgba(1,1, 1, 0.65);
   color: #fff;
   border:none;
 }
 h4 {
-color: #FF5722;
-font-size:32px;
+color: #ffa500;
+font-size:28px;
 }
 
 body { 
@@ -26,4 +26,15 @@ body {
 
 ul {
   list-style: none;
+
+}
+li {
+  font-family: 'Architects Daughter' cursive;
+  font-size:18px;
+}
+.highlight-text {
+color: #ffa500;
+}
+a:hover {
+  text-decoration: none;
 }
