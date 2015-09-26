@@ -1,3 +1,17 @@
 .container {
   margin-top:20px;
 }
+
+h1 {
+  font-family: 'Righteous', cursive;
+  font-size: 45px;
+}
+.well {
+  background-color: #8BC34A;
+  color: #fff;
+}
+h4 {
+color: #FF5722;
+font-size:32px;
+}
+
