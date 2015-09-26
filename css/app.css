@@ -41,3 +41,9 @@ color: #ffa500;
 a:hover {
   text-decoration: none;
 }
+.editable:hover {
+  text-decoration: underline;
+}
+.editable{
+  font-size: 18px;
+}
