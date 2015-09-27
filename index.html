@@ -4,21 +4,23 @@
     <title>Food Places</title>
     <script src="lib/angular.js"></script>
     <script src="app.js"></script>
-    <script src="js/PlacesController.js"></script>
+    <script src="controllers/PlacesController.js"></script>
+    <script src="controllers/OpenController.js"></script>
+    <script src="services/PlacesFactory.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Righteous|Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/app.css">
 
   </head>
   <body>
-    <div class="container" ng-controller="PlacesCtrl">
+    <div class="container" >
       <div class="row">
         <div class="col-md-8 col-md-offset-2 well">
           <h1 class="text-center"><img src="imgs/pig.png" alt="pig logo">  Pudgy Portland</h1>
           <br>
         </div>
       </div><! end of row 1 -->
-      <div class="row">
+      <div class="row" ng-controller="PlacesCtrl">
         <div class="col-md-8 col-md-offset-2 well">
           <div class="list well">
             <h4 class="text-center" ng-show="places.length && filtered.length">All Restaurants<hr></h4>
@@ -29,7 +31,8 @@
               <span ng-click="editing = true" ng-hide="editing">
               <span class="highlight-text">Restaurant Name: </span><span class="editable">{{place.name}}  </span>
               <span class="highlight-text">Food Type:</span> <span class="editable">{{place.type}}</span>
-              <a ng-click="deletePlace(place)"><span class="text-danger">&nbsp &nbsp Delete Listing</span></a>
+              {{place.openNow}}
+              <a ng-click="PlacesFactory.deletePlace(place)"><span class="text-danger">&nbsp &nbsp Delete Listing</span></a>
               </span>
               <span class="form-group" ng-show="editing" ng-submit="editing = false">
               <form class="form-inline" role="form">
@@ -48,12 +51,17 @@
           </div><!-- end of list well -->
           <h4 class="text-center">Add a New Food Place</h4>
           <center>
-            <form ng-submit="addPlace();" class="form-inline" role="form">
+            <form ng-submit="PlacesFactory.addPlace();" class="form-inline" role="form">
               <div class="form-group">
-                <input type="text" ng-model="placeName" class="form-control" placeholder="Restaurant Name">
+                <input type="text" ng-model="PlacesFactory.placeName" class="form-control" placeholder="Restaurant Name">
               </div>
               <div class="form-group">
-                <input type="text" ng-model="placeType" class="form-control" placeholder="Food Type">
+                <input type="text" ng-model="PlacesFactory.placeType" class="form-control" placeholder="Food Type">
+              </div>
+              <div class="form-group">
+                <label>Check box if Open Now
+                  <input type="checkbox" ng-model="PlacesFactory.openNow">
+                </label>
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
               </form>
@@ -66,9 +74,15 @@
             </form>
           </center>
         </div><!-- end of col 8 div -->
-
-
       </div><!--end of row 2 -->
+      <div class="row" ng-controller="OpenCtrl">
+        <div class="col-md-8 col-md-offset-2 well" ng-show="placesNowOpen.length">
+          <h4 class="text-center">Locations Open Right Now</h4>
+          <ul>
+            <li ng-repeat="place in placesNowOpen = (places | filter:{openNow: true})">{{place.name}}</li>
+          </ul>
+        </div>
+      </div>
     </div><!--end of container -->
   </body>
 </html>
